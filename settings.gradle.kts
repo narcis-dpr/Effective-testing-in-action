@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Effective Testing"
 include(":app")
- 
+include(":effectiveandsystematicetest")
