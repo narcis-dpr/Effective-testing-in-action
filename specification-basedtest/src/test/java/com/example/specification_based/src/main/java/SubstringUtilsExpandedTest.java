@@ -43,6 +43,7 @@ public class SubstringUtilsExpandedTest {
         assertThat(substringsBetween("abc", "a", "y")).isEqualTo(null);
         assertThat(substringsBetween("abc", "x", "c")).isEqualTo(null);
         assertThat(substringsBetween("abc", "a", "c")).isEqualTo(new String[] {"b", "b"});
+        assertThat(substringsBetween("abcabyt byrc", "a", "c")).isEqualTo(new String[] {"b", "byt byr"});
     }
 
     @Test
@@ -52,6 +53,7 @@ public class SubstringUtilsExpandedTest {
         assertThat(substringsBetween("aabcc", "xx", "cc")).isEqualTo(null);
         assertThat(substringsBetween("aabbcc", "aa", "cc")).isEqualTo(new String[] {"bb"});
         assertThat(substringsBetween("aabbccaaeecc", "aa", "cc")).isEqualTo(new String[] {"bb", "ee"});
+        assertThat(substringsBetween("a abb ddc ca abbcc", "a a", "c c")).isEqualTo(new String[] {"bb dd"});
         assertThat(substringsBetween("a abb ddc ca abbcc", "a a", "c c")).isEqualTo(new String[] {"bb dd"});
     }
     @Test
