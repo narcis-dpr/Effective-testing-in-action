@@ -100,5 +100,18 @@ public class PlanningPokerTest {
         return estimates.list().ofMinSize(1);
     }
 
+    @Test
+    public void developersWithSameEstimates() {
+        List<Estimate> list = Arrays.asList(
+                new Estimate("Mauricio", 10),
+                new Estimate("Arie", 5),
+                new Estimate("Andy", 10),
+                new Estimate("Frank", 7),
+                new Estimate("Annibale", 5)
+        );
+        List<String> devs = new PlanningPoker().identifyExtremes(list);
+
+        assertThat(devs).containsExactlyInAnyOrder("Mauricio", "Arie");
+    }
 
 }
