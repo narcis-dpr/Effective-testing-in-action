@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.assertj:assertj-core:3.19.0")
+    testImplementation("net.jqwik:jqwik:1.6.3")
 }

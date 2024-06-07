@@ -3,6 +3,13 @@ package com.example.effectiveT.src.main.java;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
+import net.jqwik.api.Arbitraries;
+import net.jqwik.api.Arbitrary;
+import net.jqwik.api.Combinators;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
+import net.jqwik.api.Provide;
+
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -58,4 +65,40 @@ public class PlanningPokerTest {
 
         assertThat(devs).containsExactlyInAnyOrder("Mauricio", "Arie");
     }
+
+    @Property
+    void estimatesInAnyOrder(@ForAll("estimates") List<Estimate> estimates) {
+        estimates.add(new Estimate("MrLowEstimate", 1));
+        estimates.add(new Estimate("MsHighEstimate", 100));
+        Collections.shuffle(estimates);
+
+        List<String> devs = new PlanningPoker().identifyExtremes(estimates);
+
+        assertThat(devs)
+                .containsExactlyInAnyOrder("MrLowEstimate", "MsHighEstimate");
+    }
+//    @Test
+//    public void inAnyOrder() {
+//        estimates.add(new Estimate("MrLowEstimate", 1));
+//        estimates.add(new Estimate("MsHighEstimate", 100));
+//
+//        Collections.shuffle(estimates);
+//
+//        List<String> dev = new PlanningPoker().identifyExtremes(estimates);
+//
+//        assertThat(dev).containsExactlyInAnyOrder("MrLowEstimate", "MsHighEstimate");
+//    }
+
+    @Provide
+    Arbitrary<List<Estimate>> estimate() {
+        Arbitrary<String> names = Arbitraries.strings().withCharRange('a', 'z').ofLength(5);
+
+        Arbitrary<Integer> values = Arbitraries.integers().between(2, 99);
+        Arbitrary<Estimate> estimates = Combinators.combine(names, values)
+                .as((name, value) -> new Estimate(name, value));
+
+        return estimates.list().ofMinSize(1);
+    }
+
+
 }
