@@ -45,4 +45,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.assertj:assertj-core:3.19.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.8.1")
 }
