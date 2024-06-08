@@ -16,12 +16,12 @@ import static org.junit.jupiter.params.provider.Arguments.of;
 public class NumberUtilsTest {
 
     @ParameterizedTest
-    @MethodSource("testCases")
+    @MethodSource("testCases") // the name of the method that provides the input
     void shouldReturnCorrectResult(List<Integer> left, List<Integer> right, List<Integer> expected) {
         assertThat(new NumberUtils().add(left, right)).isEqualTo(expected);
     }
 
-    static Stream<Arguments> testCases() {
+    static Stream<Arguments> testCases() { // one argument per test case
 
         /*
          * left:
