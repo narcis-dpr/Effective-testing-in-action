@@ -32,6 +32,10 @@ public class NumberUtils {
         if (carry>0)
             result.addFirst(carry);
 
+        // remove leading zeros
+        while (result.size() > 1 && result.get(0) == 0) {
+            result.remove(0);
+        }
         return result;
     }
 }
