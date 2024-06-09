@@ -28,6 +28,10 @@ public class NumberUtils {
             result.addFirst(sum % 10);
             carry = sum / 10;
         }
+        // fix the carry issue at left-most position :
+        if (carry>0)
+            result.addFirst(carry);
+
         return result;
     }
 }
