@@ -23,3 +23,4 @@ rootProject.name = "Effective Testing"
 include(":app")
 include(":effectiveandsystematicetest")
 include(":specification-basedtest")
+include(":structural-testing")
