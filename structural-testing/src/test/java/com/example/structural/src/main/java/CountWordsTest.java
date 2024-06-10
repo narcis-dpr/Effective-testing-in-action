@@ -19,4 +19,9 @@ public class CountWordsTest {
         assertThat(words).isEqualTo(0);
     }
 
+    @Test
+    public void wordsThatEndInR() {
+        int words = new CountWords().count("car bar");
+        assertThat(words).isEqualTo(2);
+    }
 }
