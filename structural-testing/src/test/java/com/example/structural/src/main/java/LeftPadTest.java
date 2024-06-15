@@ -1,5 +1,6 @@
 package com.example.structural.src.main.java;
 
+import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -34,4 +35,9 @@ public class LeftPadTest {
         );
     }
 
+    @Test
+    public void sameInstance() {
+        String str = "sometext";
+        assertThat(leftPad(str, 5, "-")).isSameAs(str);
+    }
 }
