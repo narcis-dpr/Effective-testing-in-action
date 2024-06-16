@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/desgining-contracts" />
             <option value="$PROJECT_DIR$/effectiveandsystematicetest" />
             <option value="$PROJECT_DIR$/specification-basedtest" />
             <option value="$PROJECT_DIR$/structural-testing" />
